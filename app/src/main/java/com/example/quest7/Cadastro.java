@@ -27,14 +27,16 @@ public class Cadastro extends AppCompatActivity {
         radioGroupGenero = findViewById(R.id.radioGroup);
         editTextCargo = findViewById(R.id.activity_cadastro_editText_cargo);
 
+        Intent intent = getIntent();
+
+        if(intent.hasExtra("funcionario")){
+            Funcionario funcionario = (Funcionario)intent.getSerializableExtra("funcionario");
+        }else {
+        }
+
         btnCadastrar = findViewById(R.id.activity_cadastro_button_cadastrar);
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
 
-           Intent intent = getIntent();
-           if(intent.hasExtra){
-                Funcionario funcionario = (Funcionario)intent.getSerializableExtra("funcionario");
-           }else {
-            }
             @Override
             public void onClick(View v) {
                 cadastroFuncionario();
